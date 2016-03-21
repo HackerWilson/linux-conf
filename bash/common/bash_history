@@ -1,0 +1,10 @@
+# 不存储重复的历史命令
+export HISTCONTROL=ignoreboth
+# 忽略特定的历史命令
+export HISTIGNORE="cd:cd *:ls:ls *:pwd:exit"
+# 存储格式
+export HISTTIMEFORMAT="%F %T `whoami` "
+# 记录历史命令的个数
+export HISTSIZE=1000
+# 记录历史命令文件的大小
+#export HISTFILESIZE=10000

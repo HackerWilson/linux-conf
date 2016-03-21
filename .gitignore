@@ -1,0 +1,8 @@
+bash_completion.d/linux
+bash_completion.d/macosx
+
+# Mac OSX
+.DS_Store
+
+# Personal
+personal

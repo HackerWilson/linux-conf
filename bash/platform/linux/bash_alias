@@ -1,0 +1,10 @@
+alias ls='ls -hF --color'
+alias free='free -m'
+alias chmod='chmod -v --preserve-root'
+alias chown='chown -v --preserve-root'
+alias chgrp='chgrp -v --preserve-root'
+
+alias ll='ls -al --color=tty'
+alias lx='ls -lBX --color=auto'  # 按扩展名查看
+alias lz='ls -lrS --color=auto'  # 按文件大小查看
+alias lt='ls -lrt --color=auto'  # 按修改时间查看

@@ -1,0 +1,9 @@
+alias ls='ls -GF'
+alias chmod='chmod -v'
+alias chown='chown -v'
+alias chgrp='chgrp -v'
+
+alias ll='ls -al'
+alias lx='ls -lhBX'
+alias lz='ls -lhrS'
+alias lt='ls -lhrt'

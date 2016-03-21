@@ -1,0 +1,48 @@
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias mkdir="mkdir -pv"
+alias grep="grep -nE --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias df="df -h"
+alias du="du -h"
+alias ssh='ssh -2'
+alias tmux='tmux -2'
+
+# cd
+alias cd..="cd .."
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias cdd='changePS1'
+changePS1(){
+    if [ $1 ];then
+        cd $1
+    else
+        cd
+    fi
+    if [ ${#PWD} -gt 25 ];then
+        export PS1='[\u@${PWD:0:8}.../\W]$(__git_ps1 "(%s)")\$ '
+    else
+        export PS1='[\u@\w]$(__git_ps1 "(%s)")\$ '
+    fi
+}
+
+# 快捷键
+alias pong='ping -c 5'
+alias lsd='find . -maxdepth 1 -type d | sort'   # 列出所有目录
+alias psmem='ps aux | sort -nr -k 4 |head -n 10'
+
+# rm删除到回收站文件夹.Trash中
+alias rm=trash
+trash(){
+    if [ ! -d $HOME/.Trash ];then
+        mkdir $HOME/.Trash
+    fi
+    mv $@ $HOME/.Trash/
+}
+cleartrash(){
+    read -p "Clear Trash? [n]" confirm
+    [ $confirm == 'y' ] || [ $confirm == 'Y' ]  && /bin/rm -rf $HOME/.Trash/* && echo "Success!"
+}
