@@ -22,10 +22,10 @@ sh $CF_DIR/bash_completion.d/bash_completion.sh
 # VIM
 # Vim-Plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-# Ultisnips
-ln -sfh $CF_DIR/vim/UltiSnips $HOME/.vim/UltiSnips
 
 if [ `uname` = "Linux" ];then
+    # Ultisnips
+    ln -sfn $CF_DIR/vim/UltiSnips $HOME/.vim/UltiSnips
     # Monaco_Fonts
     FONTS_DIR=/usr/share/fonts/monaco
     if [ ! -d $FONTS_DIR ]; then
@@ -33,6 +33,9 @@ if [ `uname` = "Linux" ];then
         ln -sf $CF_DIR/vim/fonts/Monaco_Linux.ttf $FONTS_DIR
         fc-cache -fv
     fi
+else
+    # Ultisnips
+    ln -sfh $CF_DIR/vim/UltiSnips $HOME/.vim/UltiSnips
 fi
 vim -u $HOME/.vimrc +PlugInstall +PlugClean +PlugUpdate +qa
 
