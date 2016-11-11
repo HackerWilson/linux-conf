@@ -1,6 +1,5 @@
 export BASHRC_PATH=`readlink $HOME/.bashrc`
 export BASHCF_DIR=`dirname $BASHRC_PATH`
-export BASHCP_DIR=`dirname $BASHCF_DIR`
 
 # bash/common
 for f in `find $BASHCF_DIR/common -maxdepth 1 -type f`
@@ -19,15 +18,20 @@ do
     source $f
 done
 
-# bash_completion.d
-for f in `find -L $BASHCP_DIR/bash_completion.d/$OS -maxdepth 1 -type f`
-do
-    source $f
-done
-
 # bash/personal
 if [ -d $BASHCF_DIR/personal ];then
     for f in `find $BASHCF_DIR/personal -maxdepth 1 -type f`
+    do
+        source $f
+    done
+fi
+
+# bash_completion.d
+if [ -n "$BASHCP_PATH" ]; then
+    source $BASHCP_PATH
+else
+    export BASHCP_DIR=`dirname $BASHCF_DIR`/bash_completion.d
+    for f in `find -L $BASHCP_DIR/$OS -maxdepth 1 -type f`
     do
         source $f
     done
