@@ -14,7 +14,7 @@ filetype off " required! turn off
 " inspired by spf13, 自定义需要的插件集合
 if !exists('g:bundle_groups')
     " more options: ['json', 'nginx', 'golang', 'ruby', 'less', 'javascript', 'css', 'tmux']
-    let g:bundle_groups=['python', 'markdown', 'html', 'beta']
+    let g:bundle_groups=['python', 'rust','markdown', 'html', 'beta']
 endif
 
 " ----------------------------------------------------------------------------
@@ -180,6 +180,11 @@ if count(g:bundle_groups, 'python')
     Plug 'hdima/python-syntax'
     Plug 'hynek/vim-python-pep8-indent'
     Plug 'Glench/Vim-Jinja2-Syntax'
+endif
+
+if count(g:bundle_groups, 'rust')
+    " for rust.vim syntax highlight
+    Plug 'rust-lang/rust.vim'
 endif
 
 if count(g:bundle_groups, 'ruby')
@@ -701,6 +706,10 @@ call plug#end()
 
 " pythonsyntax {{{
     let python_highlight_all = 1
+" }}}
+
+" rust {{{
+    let g:rustfmt_autosave = 1
 " }}}
 
 
