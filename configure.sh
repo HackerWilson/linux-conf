@@ -39,8 +39,5 @@ else
 fi
 vim -u $HOME/.vimrc +PlugInstall +PlugClean +PlugUpdate +qa
 
-# Virtualenv
-sh $CF_DIR/virtualenv/virtualenv.sh
-
 source $HOME/.bashrc
 export SHELL=$OLD_SHELL
