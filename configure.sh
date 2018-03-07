@@ -1,5 +1,5 @@
 OLD_SHELL=$SHELL
-export SHELL="/bin/sh"
+export SHELL="/bin/bash"
 
 CF_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
@@ -17,7 +17,7 @@ do
 done
 
 # bash_completion.d
-sh $CF_DIR/bash_completion.d/bash_completion.sh
+$CF_DIR/bash_completion.d/bash_completion.sh
 
 # VIM
 # Vim-Plug
